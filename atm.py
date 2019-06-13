@@ -25,4 +25,16 @@ if Choice==2:
     elif withdraw_amount>balance:
         print("Not enough funds in your account")
 
+elif Choice==3:
+    print(" Your Balance is  KES ", balance)
+    deposit_amount = float(input("Enter amount to deposit "))
+        if Deposit > 0:
+            forewardbalance = (balance + Deposit)
+            print("Forewardbalance  £ ", forewardbalance)
+        else:
+            print("None deposit made")
+
+    if Option == 4:
+        exit()
+
 
