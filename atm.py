@@ -29,15 +29,14 @@ elif Choice==2:
     withdraw_amount=int(input("Please enter amount to withdraw:"))
     new_balance=a.withdrawal(withdraw_amount)
     print("Your balance is   kes ", new_balance)
-    main_menu()
-
+    exit()
 
 ##deposit
 elif Choice==3:
     print(" Your Balance is  KES ",a.get_balance())
     amount_to_deposit=float(input("Please enter amount to deposit:"))
-    if amount_to_deposit>150000:
-        print('please enter an amount below 1500000')
+    if amount_to_deposit>40000:
+        print('please enter an amount upto 40000')
         main_menu()
     else:
         new_balance=a.deposit(int(amount_to_deposit))

@@ -7,19 +7,17 @@ class BankAccount:
     def get_balance(self):
         return self.balance
 
-    def deposit(self, amount):
+    def deposit(self, amount,limit=40000):
         trx_amount_per_day=0
         self.balance += amount
         trx_amount_per_day=self.balance
         return self.balance
 
-    def withdrawal(self, amount, limit=50000):
+    def withdrawal(self, amount, limit=20000):
         withdrawal_frequency=0
         if self.balance - int(amount) > 0 and int(amount) <= limit:
             self.balance -= int(amount)
             withdrawal_frequency=+1
-            print(withdrawal_frequency)
-
             return self.balance
         else:
             raise ValueError(
