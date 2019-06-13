@@ -20,9 +20,8 @@ class BankAccount:
             withdrawal_frequency=+1
             return self.balance
         else:
-            raise ValueError(
-                'Your withdrawal amount is {} which exceeds your account limit! You have:\n{}. Your withdrawal limit is {}'.format(
-                    amount, self.balance, limit))
+             raise ValueError( 'Your withdrawal amount is {} which exceeds the transaction limit ! You have:' \
+                   '\n{}. Your withdrawal limit is {}'.format(amount, self.balance, limit))
 
 #bank account object
 a = BankAccount(100000)

@@ -26,10 +26,18 @@ if Choice==1:
 elif Choice==2:
     print('\n')
     print(" Your Balance is  KES ",a.get_balance())
-    withdraw_amount=int(input("Please enter amount to withdraw:"))
-    new_balance=a.withdrawal(withdraw_amount)
-    print("Your balance is   kes ", new_balance)
-    exit()
+    try:
+
+        withdraw_amount=int(input("Please enter amount to withdraw:"))
+        if withdraw_amount>50000:
+            print('Enter correct amount')
+        else:
+
+            new_balance=a.withdrawal(withdraw_amount)
+            print("Your balance is   kes ", new_balance)
+    except:
+        import traceback
+        traceback.print_exc()
 
 ##deposit
 elif Choice==3:
