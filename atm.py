@@ -1,10 +1,34 @@
-balance = 100000
-print("    ATM    ")
-balance=100000
+class BankAccount:
+    """A bank account class"""
+    def __init__(self, balance=100000):
+
+        self.balance = balance
+
+    def get_balance(self):
+        return self.balance
+
+    def deposit(self, amount):
+        self.balance += amount
+        print(self.balance)
+        return self.balance
+
+    def withdrawal(self, amount, limit=50000):
+        if self.balance - amount > 0 and amount <= limit:
+            self.balance -= amount
+            return self.balance
+        else:
+            return 'Your withdrawal amount is {} which exceeds your account limit! You have:' \
+                   '\n{}. Your withdrawal limit is {}'.format(amount, self.balance, limit)
 
 
 
-#main atm menu
+
+#bank account object
+a = BankAccount(100000)
+
+
+
+##main menu
 def main_menu():
 
     print("""
@@ -17,56 +41,37 @@ def main_menu():
     """)
 main_menu()
 
+##going back to main menu
+def go_back_to_main_menu():
+    what_to_do_next = input('Type “menu” and press enter to go back to main menu : ')
+    main_menu()
 
-def withdraw(balance,amount):
-    if balance<0:
-        balance=balance-10
+
+Choice =int(input("Enter Option: "))
+
+if Choice==1:
+        print(" Your Balance is  KES ",a.get_balance())
+
+elif Choice==2:
+    print('\n')
+    print(" Your Balance is  KES ",a.get_balance())
+    withdraw_amount=float(input("Please enter amount to withdraw:"))
+    new_balance=a.withdrawal(withdraw_amount)
+    print("Your balance is   kes ", int(float(new_balance)))
+    go_back_to_main_menu()
+
+elif Choice==3:
+    print(" Your Balance is  KES ",a.get_balance())
+    amount_to_deposit=float(input("Please enter amount to deposit:"))
+    if amount_to_deposit>150000:
+        print('please enter an amount below 1500000')
+        go_back_to_main_menu()
     else:
-        balance=balance-amount
-    return balance
+        new_balance=a.deposit(int(amount_to_deposit))
+        print("Your balance is   kes ", new_balance)
+        go_back_to_main_menu()
 
-
-def deposit(balance, amount):
-    if amount>40000:
-        print('enter right amount')
-    else:
-        balance=+amount
-
-
-def main():
-    Choice =int(input("Enter Option: "))
-
-    if Choice==1:
-        print(" Your Balance is  KES ",balance)
-
-    if Choice==2:
-        print(" Your Balance is  KES ",balance)
-        withdraw_amount=float(input("Please enter amount to withdraw "))
-
-        if withdraw_amount>20000:
-            print('Maximum amount per transaction is 20000')
-
-        elif withdraw_amount>1 and withdraw_amount<balance:
-            amount_remaining=withdraw(balance,amount=withdraw_amount)
-            print("Your balance is   kes ",amount_remaining)
-            exit()
-
-        elif withdraw_amount>balance:
-            print("Not enough funds in your account")
-            exit()
-
-    elif Choice==3:
-        print(" Your Balance is  KES ", balance)
-        deposit_amount = float(input("Enter amount to deposit "))
-        if deposit_amount>1 and deposit_amount<40000:
-            new_balance=(balance+deposit_amount)
-            print("Your balance is   kes ",new_balance)
-        else:
-            print('Please enter an amount between 1 and 50000')
-
-
-
-    elif Choice==4:
+elif Choice==4:
         ask=str(input("""
         Are you sure you want to exit
         """))
@@ -76,5 +81,13 @@ def main():
         else:
             main_menu()
 
-main()
+
+
+
+
+
+
+
+
+
 
