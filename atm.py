@@ -3,11 +3,10 @@ import datetime
 from atmclass import BankAccount
 a = BankAccount(100000)
 
-
 ##main menu
 def main_menu():
 
-    print("""
+    print(""" What would you like to do?
     1)        Balance
     2)        Withdraw
     3)        Deposit
@@ -16,8 +15,6 @@ def main_menu():
 
     """)
 main_menu()
-
-def main():
 
 
 ##user inpiut

@@ -11,7 +11,7 @@ class BankAccount:
         trx_amount_per_day=0
         self.balance += amount
         trx_amount_per_day=self.balance
-        return self.balance,trx_amount_per_day
+        return self.balance
 
     def withdrawal(self, amount, limit=50000):
         withdrawal_frequency=0
