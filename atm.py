@@ -1,6 +1,10 @@
 balance = 100000
 print("    ATM    ")
+balance=100000
 
+
+
+#main atm menu
 def main_menu():
 
     print("""
@@ -14,8 +18,7 @@ def main_menu():
 main_menu()
 
 
-
-def withdraw(balance,amount,max_per_transaction=20000):
+def withdraw(balance,amount):
     if balance<0:
         balance=balance-10
     else:
@@ -68,7 +71,7 @@ def main():
         Are you sure you want to exit
         """))
 
-        if ['yes', 'y','yeah'] in ask:
+        if ask in  ['yes', 'y','yeah'] :
             exit()
         else:
             main_menu()
