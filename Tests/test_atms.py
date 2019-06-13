@@ -1,40 +1,31 @@
 import unittest
-
-class BankAccount:
-
-    def __init__(self):
-        self.balance = 0.0
-
-    def deposit_funds(self, amount):
-        try:
-            self.balance += amount
-        except TypeError:
-            raise TypeError
-
-    def withdraw_funds(self, amount):
-        balance=0.0
-        if amount <= balance:
-            self.balance -= amount
+from atm import BankAccount
 
 
+class TestUser(unittest.TestCase):
+    @classmethod
+    def SetupUserClass(cls):
+        """This method is a life cycle hook for this class"""
+        print("setup class")
 
-class TestBankAcount(unittest.TestCase):
+    @classmethod
+    def tearDownClass(cls):
+        """this method is executed after each test"""
+        print("teardown class")
 
     def setUp(self):
-        self.test_account = BankAccount()
-        self.test_account.balance = 1000
+        """
+    This method sets up the data needed to test User class"""
+        self.customerA = BankAccount(balance=1000000)
 
-    def test_normal_deposit(self):
-        expected_balance = 1100.0
-        self.test_account.deposit_funds(100.0)
-        self.assertEqual(expected_balance, self.test_account.balance)
-        self.assertIsNotNone(self,expected_balance)
+    def test_init(self):
+        """this methods checks whether instantiation is done well"""
+        self.assertEqual(self.customerA.get_balance(), 1000000)
 
-    def test_max_amount_raises_erroe(self):
-        #  test wrong data type value
-        with self.assertRaises(TypeError):
-            self.test_account.deposit_funds('enter a number')
+    def tearDown(self):
+        """ run to clean up the class"""
 
-if __name__ == '__main__':
 
+if __name__ == '_main_':
+    print("testing")
     unittest.main()
